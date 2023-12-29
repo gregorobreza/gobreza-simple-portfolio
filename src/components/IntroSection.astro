@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import gregorObrezaPortret from "../images/Gregor_Obreza_portret.jpg";
+import ConnectLinks from "./ConnectLinks.astro";
 ---
-
-<div class="flex flex-col-reverse sm:flex-row gap-12 px-5">
+<div class="flex flex-col px-6 gap-y-6 sm:gap-y-3">
+<div class="flex flex-col-reverse sm:flex-row gap-12 sm:justify-between">
   <div class="min-w-32 w-32 min-h-32 h-32 self-center sm:self-end">
     <Image
       class="rounded-full"
       src={gregorObrezaPortret}
-      alt="A bird sitting on a nest of eggs."
+      alt="Gregor Obreza portret foto."
     />
   </div>
   <div class="flex flex-col gap-y-3">
@@ -29,4 +30,8 @@ import gregorObrezaPortret from "../images/Gregor_Obreza_portret.jpg";
       >.
     </p>
   </div>
+</div>
+<div class="self-center sm:self-end">
+<ConnectLinks/>
+</div>
 </div>

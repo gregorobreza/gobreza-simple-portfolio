@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.tooltip {
+    @apply invisible absolute;
+  }
+  
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
+
 @layer base {
   :root {
     --color-rich-black-primary: 259deg 73% 4%;
@@ -12,11 +20,13 @@
     @apply bg-dark-primary text-levender-white;
   }
   body {
-    @apply p-4 sm:p-5 w-full mx-auto my-0 max-w-3xl;
+    @apply px-4 sm:px-5 w-full mx-auto my-0 max-w-3xl;
   }
   h1,
-  h2,
-  h3 {
+  h2 {
     @apply text-ghost-white font-semibold text-xl;
+  }
+  h3 {
+    @apply text-ghost-white font-semibold text-lg;
   }
 }

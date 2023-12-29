@@ -1,18 +1,36 @@
 ---
-// interface Props {
-// 	title: string;
-// 	body: string;
-// 	href: string;
-// }
-
-
-// const { href, title, body } = Astro.props;
+import PrimaryButton from "./PrimaryButton.astro";
+import { getCollection } from "astro:content";
+import ProjectOverview from "./ProjectOverview.astro";
+const allFeaturedProjects = (await getCollection("projects")).filter(
+  (pro) => pro.data.featured
+);
 ---
 
-<div class="bg-gradient-to-tr from-dark-secondary rounded-3xl border border-ghost-white/35 w-full p-8 sm:px-12">
-	<div class="flex flex-col items-center gap-y-8">
-		<h2>Work and Projects</h2>
-		<div class="h-60"></div>
-	</div>
+<div
+  class="bg-gradient-to-tr from-dark-secondary rounded-3xl border border-ghost-white/35 w-full p-8 sm:px-12"
+>
+  <div class="flex flex-col items-center gap-y-6">
+    <h2>Work and Projects</h2>
+    <div class="flex flex-col gap-y-6 divide-y divide-ghost-white/35 w-full">
+      {
+        allFeaturedProjects.map((project) => (
+          <ProjectOverview
+            slug={project.slug}
+            title={project.data.title}
+            description={project.data.description}
+            tags={project.data.tags}
+            image={project.data.image}
+          />
+        ))
+      }
+      <div class="self-center w-full flex justify-center pt-6">
+        <a href="/projects">
+          <PrimaryButton>
+            <p class="text-sm">All Projects</p>
+          </PrimaryButton>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
-
