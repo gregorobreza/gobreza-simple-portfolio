@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import gregorObrezaPortret from "../images/Gregor_Obreza_portret.jpg";
+---
+
+<div class="flex flex-col-reverse sm:flex-row gap-12 px-5">
+  <div class="min-w-32 w-32 min-h-32 h-32 self-center sm:self-end">
+    <Image
+      class="rounded-full"
+      src={gregorObrezaPortret}
+      alt="A bird sitting on a nest of eggs."
+    />
+  </div>
+  <div class="flex flex-col gap-y-3">
+    <h1>Gregor Obreza</h1>
+    <p>
+      Full stack developer building custom web solutions. Acquiring new skills
+      by trying, building and exploring new stuff. Most excited when developing
+      useful apps that solve real-life problems.
+    </p>
+    <p>
+      Over 3 years of web development experience. Currently a full-time
+      front-end developer at <a
+        class="underline"
+        href="https://flare.network/"
+        target="_blank">Flare</a
+      > and <a class="underline" target="_blank" href="https://aflabs.eu/"
+        >AFLabs</a
+      >.
+    </p>
+  </div>
+</div>

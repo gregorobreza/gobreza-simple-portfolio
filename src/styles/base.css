@@ -1,0 +1,22 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-rich-black-primary: 259deg 73% 4%;
+    --color-rich-black-secondary: 216deg 31% 10%;
+    --color-ghost-white: 240deg 100% 99%;
+    --color-levender: 226deg 40% 92%;
+    @apply bg-dark-primary text-levender-white;
+  }
+  body {
+    @apply p-4 sm:p-5 w-full mx-auto my-0 max-w-3xl;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-ghost-white font-semibold text-xl;
+  }
+}
