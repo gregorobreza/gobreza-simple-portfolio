@@ -1,0 +1,10 @@
+---
+const breadCrumbs = Astro.url.pathname.split("/");
+console.log(breadCrumbs);
+
+---
+
+<div class="flex">
+    <div>Home</div>
+  {breadCrumbs.map((crumb) => <div>{crumb}/</div>)}
+</div>

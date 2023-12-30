@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import PrimaryButton from "./PrimaryButton.astro";
+import SecondaryButton from "./SecondaryButton.astro";
+import BreadCrumbs from "./BreadCrumbs.astro";
+const allProjects = await getCollection("projects");
+const tags = [
+  ...new Set(allProjects.map((project) => project.data.tags).flat()),
+];
+interface Props {
+  allPostsButton?: boolean;
+  mainTitle: string
+  description?:string
+}
+
+const { allPostsButton, mainTitle, description } = Astro.props;
+---
+
+<div class="flex flex-col gap-y-3 px-3 sm:px-8">
+  <!-- <BreadCrumbs/> -->
+  <h1>{mainTitle}</h1>
+  {description && <p>{description}</p>}
+  <div class="font-semibold">Tags:</div>
+  <div class="flex flex-wrap gap-2">
+    {allPostsButton &&  <a href={`/projects`}>
+      <PrimaryButton>
+        <p class="text-sm">All Projects</p>
+      </PrimaryButton>
+    </a>}
+    {
+      tags.map((tag) => (
+        <a href={`/projects-tags/${tag}`}>
+          <SecondaryButton>
+            <p class="text-sm">#{tag}</p>
+          </SecondaryButton>
+        </a>
+      ))
+    }
+  </div>
+</div>

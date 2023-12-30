@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import IntroProjectsSection from "../../components/IntroProjectsSection.astro";
+import ProjectOverview from "../../components/ProjectOverview.astro";
+import ProjectsCardList from "../../components/ProjectsCardList.astro";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const allProjects = await getCollection("projects");
+  const uniqueTags = [
+    ...new Set(allProjects.map((project) => project.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredProjects = allProjects.filter((project) =>
+      project.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { projects: filteredProjects },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { projects } = Astro.props;
+
+const pageTitle = `Gregor Obreza | Projects by tag #${tag}`;
+const listTitle = `Projects by tag #${tag}`;
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <div class="flex flex-col gap-y-6 sm:gap-y-10 py-12">
+      <IntroProjectsSection
+        allPostsButton={true}
+        mainTitle="Work and Projects by Tag"
+      />
+      <ProjectsCardList title={listTitle}>
+        {
+          projects.map((project) => (
+            <ProjectOverview
+              slug={project.slug}
+              title={project.data.title}
+              description={project.data.description}
+              tags={project.data.tags}
+              image={project.data.image}
+            />
+          ))
+        }
+      </ProjectsCardList>
+    </div>
+  </main>
+</Layout>

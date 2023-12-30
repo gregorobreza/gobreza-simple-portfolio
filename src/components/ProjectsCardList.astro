@@ -1,0 +1,25 @@
+---
+import PrimaryButton from "./PrimaryButton.astro";
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<div
+  class="bg-gradient-to-bl from-dark-secondary rounded-3xl border border-ghost-white/35 w-full p-8 sm:px-12"
+>
+  <div class="flex flex-col gap-y-6">
+    <h2>{title}</h2>
+    <div class="flex flex-col gap-y-6 divide-y divide-ghost-white/35 w-full">
+      <slot />
+      <div class="self-center w-full flex justify-center pt-6">
+        <a href="/">
+          <PrimaryButton>
+            <p class="text-sm">Home</p>
+          </PrimaryButton>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

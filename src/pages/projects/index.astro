@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import IntroProjectsSection from "../../components/IntroProjectsSection.astro";
+import ProjectsCardList from "../../components/ProjectsCardList.astro";
+import WorkInProgress from "../../components/WorkInProgress.astro";
+import Layout from "../../layouts/Layout.astro";
+import ProjectOverview from "../../components/ProjectOverview.astro";
+const allProjects = await getCollection("projects");
+
+const pageTitle = "Gregor Obreza | Projects";
+const simpleDescription =
+  "Here you can find my work and projects. Hopefully you will find something interesting.";
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <div class="flex flex-col gap-y-6 sm:gap-y-10 py-12">
+      <IntroProjectsSection
+        mainTitle="Work and Projects"
+        description={simpleDescription}
+      />
+      <ProjectsCardList title="All projects">
+        {
+          allProjects.map((project) => (
+            <ProjectOverview
+              slug={project.slug}
+              title={project.data.title}
+              description={project.data.description}
+              tags={project.data.tags}
+              image={project.data.image}
+            />
+          ))
+        }
+      </ProjectsCardList>
+
+      <div class="self-center">
+        <WorkInProgress />
+      </div>
+    </div>
+  </main>
+</Layout>
