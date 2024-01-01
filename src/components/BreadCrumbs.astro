@@ -1,10 +1,45 @@
 ---
-const breadCrumbs = Astro.url.pathname.split("/");
-console.log(breadCrumbs);
-
+const breadCrumbs = Astro.url.pathname
+  .split("/")
+  .filter((crumb) => crumb != "")
+  .reduce(
+    (accumulator, crumb, index) => {
+      accumulator.push({
+        path: `${accumulator[index - 1]?.path || ""}/${crumb}`,
+        name: decodeURIComponent(crumb),
+      });
+      return accumulator;
+    },
+    [] as { path: string; name: string }[]
+  );
 ---
 
-<div class="flex">
-    <div>Home</div>
-  {breadCrumbs.map((crumb) => <div>{crumb}/</div>)}
+<div class="flex gap-x-2 text-sm items-center">
+  <a class="hover:scale-110 font-semibold" href="/">
+    <span class="sr-only">Home icon link</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.8"
+      stroke="currentColor"
+      class="w-5 h-5"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+      ></path>
+    </svg>
+  </a>
+  {
+    breadCrumbs.map((crumb) => (
+      <>
+        <div>/</div>
+        <a href={crumb.path} class="hover:underline font-semibold">
+          {decodeURIComponent(crumb.name)}
+        </a>
+      </>
+    ))
+  }
 </div>

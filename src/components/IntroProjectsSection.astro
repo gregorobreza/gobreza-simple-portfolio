@@ -9,31 +9,31 @@ const tags = [
 ];
 interface Props {
   allPostsButton?: boolean;
-  mainTitle: string
-  description?:string
+  mainTitle: string;
+  description?: string;
 }
 
 const { allPostsButton, mainTitle, description } = Astro.props;
 ---
 
 <div class="flex flex-col gap-y-3 px-3 sm:px-8">
-  <!-- <BreadCrumbs/> -->
+  <BreadCrumbs />
   <h1>{mainTitle}</h1>
   {description && <p>{description}</p>}
   <div class="font-semibold">Tags:</div>
   <div class="flex flex-wrap gap-2">
-    {allPostsButton &&  <a href={`/projects`}>
-      <PrimaryButton>
-        <p class="text-sm">All Projects</p>
-      </PrimaryButton>
-    </a>}
+    {
+      allPostsButton && (
+        <PrimaryButton href="/projects">
+          <p class="text-sm">All Projects</p>
+        </PrimaryButton>
+      )
+    }
     {
       tags.map((tag) => (
-        <a href={`/projects-tags/${tag}`}>
-          <SecondaryButton>
-            <p class="text-sm">#{tag}</p>
-          </SecondaryButton>
-        </a>
+        <SecondaryButton href={`/projects-tags/${tag}`}>
+          <p class="text-sm">#{tag}</p>
+        </SecondaryButton>
       ))
     }
   </div>

@@ -10,7 +10,7 @@ const allFeaturedProjects = (await getCollection("projects")).filter(
 <div
   class="bg-gradient-to-tr from-dark-secondary rounded-3xl border border-ghost-white/35 w-full p-8 sm:px-12"
 >
-  <div class="flex flex-col items-center gap-y-6">
+  <div class="flex flex-col items-center gap-y-3 sm:gap-y-6">
     <h2>Work and Projects</h2>
     <div class="flex flex-col gap-y-6 divide-y divide-ghost-white/35 w-full">
       {
@@ -25,11 +25,9 @@ const allFeaturedProjects = (await getCollection("projects")).filter(
         ))
       }
       <div class="self-center w-full flex justify-center pt-6">
-        <a href="/projects">
-          <PrimaryButton>
+          <PrimaryButton href="/projects">
             <p class="text-sm">All Projects</p>
           </PrimaryButton>
-        </a>
       </div>
     </div>
   </div>

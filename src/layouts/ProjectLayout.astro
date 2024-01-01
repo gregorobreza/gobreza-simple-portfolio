@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import BreadCrumbs from "../components/BreadCrumbs.astro";
+import ConnectCard from "../components/ConnectCard.astro";
+import PrimaryButton from "../components/PrimaryButton.astro";
+import SecondaryButton from "../components/SecondaryButton.astro";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}"
+);
+if (!images[frontmatter.image.url])
+  throw new Error(
+    `"${frontmatter.image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<Layout title={`Gregor Obreza | ${frontmatter.title}`}>
+  <main>
+    <div class="flex flex-col gap-y-6 sm:gap-y-10 py-12">
+      <div class="flex flex-col gap-y-3 px-3 sm:px-8">
+        <BreadCrumbs />
+        <h1>{frontmatter.title}</h1>
+
+        <!-- {frontmatter.description && <p>{frontmatter.description}</p>} -->
+        <div class="font-semibold">Tags:</div>
+        <div class="flex flex-wrap gap-2">
+          {
+            frontmatter.tags.map((tag: string) => (
+              <SecondaryButton href={`/projects-tags/${tag}`}>
+                <p class="text-sm">#{tag}</p>
+              </SecondaryButton>
+            ))
+          }
+        </div>
+        <div class="min-w-40 self-center">
+          <Image
+            class="rounded-lg"
+            src={images[frontmatter.image.url]()}
+            alt={frontmatter.image.alt}
+          />
+        </div>
+      </div>
+      <div class="flex flex-col gap-6 px-3 sm:px-8">
+        <slot />
+      </div>
+      <div class="px-3 sm:px-8">
+        <div class="border-t"></div>
+      </div>
+      <div class="self-center w-full flex justify-between pb-6 px-3 sm:px-8">
+        <PrimaryButton href="/projects">
+          <p class="text-sm">All Projects</p>
+        </PrimaryButton>
+        <SecondaryButton href="#">
+          <div class="flex gap-x-1">
+            <p class="text-sm">Back on top</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-arrow-badge-up-filled"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M11.375 6.22l-5 4a1 1 0 0 0 -.375 .78v6l.006 .112a1 1 0 0 0 1.619 .669l4.375 -3.501l4.375 3.5a1 1 0 0 0 1.625 -.78v-6a1 1 0 0 0 -.375 -.78l-5 -4a1 1 0 0 0 -1.25 0z"
+                stroke-width="0"
+                fill="currentColor"></path></svg
+            >
+          </div>
+        </SecondaryButton>
+      </div>
+      <ConnectCard />
+    </div>
+  </main>
+</Layout>

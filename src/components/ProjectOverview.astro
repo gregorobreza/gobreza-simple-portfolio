@@ -27,19 +27,17 @@ if (!images[image.url])
     <Image class="rounded-lg" src={images[image.url]()} alt={image.alt} />
   </a>
   <div class="flex gap-x-6 w-full col-span-3 sm:col-span-2">
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full gap-y-2">
       <a href=`/projects/${slug}`>
         <h3 class="hover:underline">{title}</h3>
       </a>
-      <p class="truncate text-sm max-w-lg sm:max-w-sm">{description}</p>
-      <div class="flex gap-x-1 flex-wrap">
+      <!-- <p class="truncate text-sm max-w-lg sm:max-w-sm">{description}</p> -->
+      <div class="flex gap-1 flex-wrap">
         {
           tags.map((tag) => (
-            <a href={`/projects-tags/${tag}`}>
-              <SecondaryButton>
+              <SecondaryButton href={`/projects-tags/${tag}`}>
                 <p class="text-xs">#{tag}</p>
               </SecondaryButton>
-            </a>
           ))
         }
       </div>
