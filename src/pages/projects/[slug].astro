@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import ProjectLink from "../../components/ProjectLink.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("projects");

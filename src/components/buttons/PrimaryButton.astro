@@ -8,13 +8,13 @@ type Props =
       href?: never;
       id: string;
     };
-const { href, id } = Astro.props;
+const { href, id, ...props } = Astro.props;
 const style = `bg-gradient-to-t from-purple-800 to-rose-700 hover:from-purple-900 hover:to-rose-800 transition text-ghost-white rounded-full px-2 active:scale-90 active:bg-gradient-to-b`;
 ---
 
 {
   href ? (
-    <a href={href}>
+    <a href={href} {...props}>
       <div class={style}>
         <slot />
       </div>

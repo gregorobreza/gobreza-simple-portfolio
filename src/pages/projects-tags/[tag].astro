@@ -24,6 +24,7 @@ const { tag } = Astro.params;
 const { projects } = Astro.props;
 
 const pageTitle = `Gregor Obreza | Projects by tag #${tag}`;
+const mainTitle = `Work and Projects by Tag`
 const listTitle = `Projects by tag #${tag}`;
 ---
 
@@ -32,7 +33,7 @@ const listTitle = `Projects by tag #${tag}`;
     <div class="flex flex-col gap-y-6 sm:gap-y-10 py-12">
       <IntroProjectsSection
         allPostsButton={true}
-        mainTitle="Work and Projects by Tag"
+        mainTitle={mainTitle}
       />
       <ProjectsCardList title={listTitle}>
         {

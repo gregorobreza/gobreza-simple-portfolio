@@ -8,13 +8,13 @@ type Props =
       href?: never;
       id: string;
     };
-const { href, id } = Astro.props;
+const { href, id, ...props } = Astro.props;
 const style = `bg-ghost-white text-dark-primary rounded-full px-2 hover:bg-levender-white active:scale-90`;
 ---
 
 {
   href ? (
-    <a href={href}>
+    <a href={href} {...props}>
       <div class={style}>
         <slot />
       </div>

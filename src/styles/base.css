@@ -31,6 +31,9 @@
   h3 {
     @apply text-ghost-white font-semibold text-lg;
   }
+  code{
+    @apply bg-levender-white text-dark-primary rounded-sm px-0.5
+  }
 }
 
 @layer components {
