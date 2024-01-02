@@ -1,0 +1,17 @@
+{
+  "name": "Porfolio of Gregor Obreza",
+  "short_name": "Gregor Obreza's portfolio",
+  "description": "Explore the work and projects of Gregor Obreza in this portfolio.",
+  "author": "Gregor Obreza",
+  "icons": [
+    {
+      "src": "google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#080313",
+  "theme_color": "#080313",
+  "display": "fullscreen",
+  "start_url": "/",
+  "orientation": "portrait"
+}
