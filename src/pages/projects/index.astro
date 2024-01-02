@@ -28,14 +28,15 @@ const simpleDescription =
               description={project.data.description}
               tags={project.data.tags}
               image={project.data.image}
+              githubLink={project.data.githubLink}
+              projectLink={project.data.projectLink}
             />
           ))
         }
+        <div class="self-center w-full py-6">
+          <WorkInProgress />
+        </div>
       </ProjectsCardList>
-
-      <div class="self-center">
-        <WorkInProgress />
-      </div>
     </div>
   </main>
 </Layout>

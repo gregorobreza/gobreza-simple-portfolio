@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectLink from "./ProjectLink.astro";
+interface Props {
+  about: CollectionEntry<"about">;
+}
+const { about } = Astro.props;
+const { Content } = await about.render();
+---
+<div class="flex flex-col gap-y-3">
+<h3>{about.data.title}</h3>
+<Content components={{ a: ProjectLink }} />
+</div>

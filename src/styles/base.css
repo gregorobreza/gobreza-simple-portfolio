@@ -4,12 +4,12 @@
 @tailwind utilities;
 
 .tooltip {
-    @apply invisible absolute;
-  }
-  
-  .has-tooltip:hover .tooltip {
-    @apply visible z-50;
-  }
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
 
 @layer base {
   :root {
@@ -22,7 +22,7 @@
   body {
     @apply px-4 sm:px-5 w-full mx-auto my-0 max-w-3xl;
   }
-  h1{
+  h1 {
     @apply text-ghost-white font-semibold text-3xl;
   }
   h2 {
@@ -30,5 +30,11 @@
   }
   h3 {
     @apply text-ghost-white font-semibold text-lg;
+  }
+}
+
+@layer components {
+  .underline-link {
+    @apply underline text-purple-600 ;
   }
 }

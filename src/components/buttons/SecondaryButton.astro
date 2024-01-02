@@ -11,14 +11,19 @@ type Props =
 const { href, id } = Astro.props;
 const style = `bg-ghost-white text-dark-primary rounded-full px-2 hover:bg-levender-white active:scale-90`;
 ---
+
 {
   href ? (
-    <a href={href} class={style}>
-      <slot />
+    <a href={href}>
+      <div class={style}>
+        <slot />
+      </div>
     </a>
   ) : (
-    <button id={id} class={style}>
-      <slot />
+    <button id={id}>
+      <div class={style}>
+        <slot />
+      </div>
     </button>
   )
 }

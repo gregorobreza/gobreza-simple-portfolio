@@ -14,12 +14,16 @@ const style = `bg-gradient-to-t from-purple-800 to-rose-700 hover:from-purple-90
 
 {
   href ? (
-    <a href={href} class={style}>
-      <slot />
+    <a href={href}>
+      <div class={style}>
+        <slot />
+      </div>
     </a>
   ) : (
-    <button id={id} class={style}>
-      <slot />
+    <button id={id}>
+      <div class={style}>
+        <slot />
+      </div>
     </button>
   )
 }

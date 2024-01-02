@@ -22,6 +22,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { projects } = Astro.props;
+// console.log(projects)
 
 const pageTitle = `Gregor Obreza | Projects by tag #${tag}`;
 const listTitle = `Projects by tag #${tag}`;
@@ -43,6 +44,8 @@ const listTitle = `Projects by tag #${tag}`;
               description={project.data.description}
               tags={project.data.tags}
               image={project.data.image}
+              githubLink={project.data.githubLink}
+              projectLink={project.data.projectLink}
             />
           ))
         }

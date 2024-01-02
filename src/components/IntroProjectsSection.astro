@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import PrimaryButton from "./PrimaryButton.astro";
-import SecondaryButton from "./SecondaryButton.astro";
+import PrimaryButton from "./buttons/PrimaryButton.astro";
+import SecondaryButton from "./buttons/SecondaryButton.astro";
 import BreadCrumbs from "./BreadCrumbs.astro";
 const allProjects = await getCollection("projects");
 const tags = [

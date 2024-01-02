@@ -1,5 +1,5 @@
 ---
-import PrimaryButton from "./PrimaryButton.astro";
+import PrimaryButton from "./buttons/PrimaryButton.astro";
 import { getCollection } from "astro:content";
 import ProjectOverview from "./ProjectOverview.astro";
 const allFeaturedProjects = (await getCollection("projects")).filter(
@@ -21,6 +21,8 @@ const allFeaturedProjects = (await getCollection("projects")).filter(
             description={project.data.description}
             tags={project.data.tags}
             image={project.data.image}
+            githubLink={project.data.githubLink}
+            projectLink={project.data.projectLink}
           />
         ))
       }
