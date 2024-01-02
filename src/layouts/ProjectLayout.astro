@@ -1,10 +1,9 @@
 ---
-import dayjs from "dayjs";
 import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
 import BreadCrumbs from "../components/BreadCrumbs.astro";
 import ConnectCard from "../components/ConnectCard.astro";
 import ProjectLayoutImage from "../components/ProjectLayoutImage.astro";
-import PrimaryButton from "../components/buttons/PrimaryButton.astro";
 import SecondaryButton from "../components/buttons/SecondaryButton.astro";
 import Layout from "./Layout.astro";
 
@@ -109,9 +108,10 @@ if (!images[frontmatter.image.url])
         <div class="border-t"></div>
       </div>
       <div class="self-center w-full flex justify-between pb-6 px-3 sm:px-8">
-        <PrimaryButton href="/projects">
+        <!-- <PrimaryButton href="/projects">
           <p class="text-sm">All Projects</p>
-        </PrimaryButton>
+        </PrimaryButton> -->
+        <BreadCrumbs/>
         <SecondaryButton href="#" data-astro-reload>
           <div class="flex gap-x-1">
             <p class="text-sm">Back on top</p>

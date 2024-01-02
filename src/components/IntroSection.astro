@@ -3,35 +3,51 @@ import { Image } from "astro:assets";
 import gregorObrezaPortret from "../images/Gregor_Obreza_portret.jpg";
 import ConnectLinks from "./ConnectLinks.astro";
 ---
+
 <div class="flex flex-col px-3 sm:px-8 gap-y-6 sm:gap-y-3">
-<div class="flex flex-col-reverse sm:flex-row gap-12 sm:justify-between">
-  <div class="min-w-32 w-32 min-h-32 h-32 self-center sm:self-end">
-    <Image
-      class="rounded-full"
-      src={gregorObrezaPortret}
-      alt="Gregor Obreza portret foto."
-    />
+  <div class="flex flex-col-reverse sm:flex-row gap-12 sm:justify-between">
+    <div
+      class="min-w-32 w-32 min-h-32 h-32 self-center sm:self-end hidden sm:block"
+    >
+      <Image
+        class="rounded-full"
+        src={gregorObrezaPortret}
+        alt="Gregor Obreza portret foto."
+      />
+    </div>
+    <div class="flex flex-col gap-y-3">
+      <div class="flex gap-x-6 items-center">
+        <div
+          class="min-w-16 w-16 min-h-16 h-16 self-center sm:self-end sm:hidden"
+        >
+          <Image
+            class="rounded-full"
+            src={gregorObrezaPortret}
+            alt="Gregor Obreza portret foto."
+          />
+        </div>
+        <h1 class="text-2xl">Gregor Obreza</h1>
+      </div>
+      <p>
+        Full stack developer building custom web solutions. Acquiring new skills
+        by trying, building and exploring new stuff. Most excited when
+        developing useful apps that solve real-life problems.
+      </p>
+      <p>
+        Over 3 years of web development experience. Currently a full-time
+        front-end developer at <a
+          class="underline-link"
+          href="https://flare.network/"
+          target="_blank">Flare</a
+        > and <a
+          class="underline-link"
+          target="_blank"
+          href="https://aflabs.eu/">AFLabs</a
+        >.
+      </p>
+    </div>
   </div>
-  <div class="flex flex-col gap-y-3">
-    <h1 class="text-2xl">Gregor Obreza</h1>
-    <p>
-      Full stack developer building custom web solutions. Acquiring new skills
-      by trying, building and exploring new stuff. Most excited when developing
-      useful apps that solve real-life problems.
-    </p>
-    <p>
-      Over 3 years of web development experience. Currently a full-time
-      front-end developer at <a
-        class="underline"
-        href="https://flare.network/"
-        target="_blank">Flare</a
-      > and <a class="underline" target="_blank" href="https://aflabs.eu/"
-        >AFLabs</a
-      >.
-    </p>
+  <div class="self-center sm:self-end">
+    <ConnectLinks />
   </div>
-</div>
-<div class="self-center sm:self-end">
-<ConnectLinks/>
-</div>
 </div>

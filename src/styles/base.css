@@ -31,13 +31,13 @@
   h3 {
     @apply text-ghost-white font-semibold text-lg;
   }
-  code{
-    @apply bg-levender-white text-dark-primary rounded-sm px-0.5
+  code {
+    @apply bg-levender-white text-dark-primary rounded-sm px-0.5;
   }
 }
 
 @layer components {
   .underline-link {
-    @apply underline text-purple-600 ;
+    @apply underline decoration-purple-600 bg-gradient-to-b from-rose-600 to-purple-700 inline-block text-transparent bg-clip-text;
   }
 }
