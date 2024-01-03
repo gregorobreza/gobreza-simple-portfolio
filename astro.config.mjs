@@ -20,12 +20,12 @@ export default defineConfig({
       // Useful if you need to define and/or import your own custom `base.css`.
       applyBaseStyles: false,
     }),
-    sitemap(),
+    // sitemap(),
     
   ],
   redirects: {
     "/projects-tags": "/projects",
   },
   site: "https://gregorobreza.github.io",
-  base: '/gobreza-simple-portfolio/',
+  base: '/gobreza-simple-portfolio',
 });
