@@ -17,20 +17,48 @@ const currentYear = new Date().getFullYear();
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta
+      name="description"
+      content="Take a peek at my portfolio for some of my projects. Visit my website for more details."
+    />
+    <meta name="author" content="Gregor Obreza" />
+    <meta name="robots" content="index, follow" />
+    <!-- facebook and Linkedin -->
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Take a peek at my portfolio for some of my projects. Visit my website for more details."
+    />
+    <meta property="og:image" content="/og_gregor_obreza.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://gregorobreza.com" />
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content="Take a peek at my portfolio for some of my projects. Visit my website for more details."
+    />
+    <meta name="twitter:image" content="/twitter_gregor_obreza.png" />
+    <meta name="twitter:image:width" content="600" />
+    <meta name="twitter:image:height" content="314" />
     <ViewTransitions />
   </head>
   <body>
     <slot />
-  </body>
-  <footer>
-    <div class="flex justify-center py-3">
-      <div class="flex flex-col gap-y-3 justify-items-center">
-        <ConnectLinks />
-        <p class="text-xs text-gray-300">gobreza.dev | &copy; {currentYear}</p>
+    <footer>
+      <div class="flex justify-center py-3">
+        <div class="flex flex-col gap-y-3 justify-items-center">
+          <ConnectLinks />
+          <p class="text-xs text-gray-300">
+            gobreza.dev | &copy; {currentYear}
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </body>
 </html>
