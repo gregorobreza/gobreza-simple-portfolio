@@ -27,5 +27,5 @@ export default defineConfig({
     "/projects-tags": "/projects",
   },
   site: "https://gregorobreza.github.io",
-  base: '/gobreza-simple-portfolio',
+  base: '/gobreza-simple-portfolio/',
 });
