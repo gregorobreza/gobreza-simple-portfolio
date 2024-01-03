@@ -4,6 +4,8 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
+const isDev = import.meta.env.DEV;
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -12,9 +14,7 @@ export default defineConfig({
     rehypePlugins: [rehypeAccessibleEmojis],
   },
   integrations: [
-    mdx({
-      rehypePlugins: [rehypeAccessibleEmojis],
-    }),
+    mdx(),
     tailwind({
       // Example: Disable injecting a basic `base.css` import on every page.
       // Useful if you need to define and/or import your own custom `base.css`.
@@ -27,5 +27,5 @@ export default defineConfig({
     "/projects-tags": "/projects",
   },
   site: "https://gregorobreza.github.io",
-  base: '/gobreza-simple-portfolio',
+  base: isDev ? "/" : '/gobreza-simple-portfolio',
 });
