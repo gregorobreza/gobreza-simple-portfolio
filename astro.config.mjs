@@ -5,8 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import remarkToc from 'remark-toc';
 
-const isDev = import.meta.env.DEV;
-
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -21,13 +19,11 @@ export default defineConfig({
       // Useful if you need to define and/or import your own custom `base.css`.
       applyBaseStyles: false,
     }),
-    // sitemap(),
+    sitemap(),
     
   ],
   redirects: {
     "/projects-tags": "/projects",
   },
-  // site: "https://gregorobreza.github.io",
   site: "https://gregorobreza.com",
-  // base: isDev ? "/" : '/gobreza-simple-portfolio',
 });
