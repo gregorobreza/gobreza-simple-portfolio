@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import remarkToc from 'remark-toc';
 
 const isDev = import.meta.env.DEV;
 
@@ -10,7 +11,7 @@ const isDev = import.meta.env.DEV;
 export default defineConfig({
   markdown: {
     // Applied to .md and .mdx files
-    // remarkPlugins: [remarkToc],
+    remarkPlugins: [remarkToc],
     rehypePlugins: [rehypeAccessibleEmojis],
   },
   integrations: [

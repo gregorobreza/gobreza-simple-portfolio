@@ -2,9 +2,9 @@
 import PrimaryButton from "./buttons/PrimaryButton.astro";
 import { getCollection } from "astro:content";
 import ProjectOverview from "./ProjectOverview.astro";
-const allFeaturedProjects = (await getCollection("projects")).filter(
-  (pro) => pro.data.featured
-);
+const allFeaturedProjects = (await getCollection("projects"))
+  .filter((pro) => pro.data.featured)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <div
@@ -27,9 +27,9 @@ const allFeaturedProjects = (await getCollection("projects")).filter(
         ))
       }
       <div class="self-center w-full flex justify-center pt-6">
-          <PrimaryButton href="/projects">
-            <p class="text-sm">All Projects</p>
-          </PrimaryButton>
+        <PrimaryButton href="/projects">
+          <p class="text-sm">All Projects</p>
+        </PrimaryButton>
       </div>
     </div>
   </div>
