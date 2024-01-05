@@ -1,7 +1,7 @@
 ---
-import PrimaryButton from "./buttons/PrimaryButton.astro";
+import PrimaryButton from "../buttons/PrimaryButton.astro";
 import { getCollection } from "astro:content";
-import ProjectOverview from "./ProjectOverview.astro";
+import ProjectOverview from "../ProjectOverview.astro";
 const allFeaturedProjects = (await getCollection("projects"))
   .filter((pro) => pro.data.featured)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());

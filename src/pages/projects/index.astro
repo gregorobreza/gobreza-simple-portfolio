@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import IntroProjectsSection from "../../components/IntroProjectsSection.astro";
-import ProjectsCardList from "../../components/ProjectsCardList.astro";
+import IntroProjectsSection from "../../components/projects/IntroProjectsSection.astro";
+import ProjectsCardList from "../../components/projects/ProjectsCardList.astro";
 import WorkInProgress from "../../components/WorkInProgress.astro";
 import Layout from "../../layouts/Layout.astro";
 import ProjectOverview from "../../components/ProjectOverview.astro";
@@ -11,7 +11,7 @@ const allProjects = (await getCollection("projects")).sort(
 
 const pageTitle = "Gregor Obreza | Projects";
 const simpleDescription =
-  "Here you can find my work and projects. Hopefully you will find something interesting.";
+  "Browse through my work and projects; there might be something that catches your eye.";
 ---
 
 <Layout title={pageTitle}>
