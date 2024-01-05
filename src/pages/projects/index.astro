@@ -6,7 +6,7 @@ import WorkInProgress from "../../components/WorkInProgress.astro";
 import Layout from "../../layouts/Layout.astro";
 import ProjectOverview from "../../components/ProjectOverview.astro";
 const allProjects = (await getCollection("projects")).sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
 const pageTitle = "Gregor Obreza | Projects";

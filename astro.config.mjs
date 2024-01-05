@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
-import remarkToc from 'remark-toc';
+import remarkToc from "remark-toc";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +20,6 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    
   ],
   redirects: {
     "/projects-tags": "/projects",
