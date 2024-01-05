@@ -14,11 +14,11 @@ interface Props {
 const { frontmatter } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/*.{jpeg,jpg,png,gif}",
+  "/src/images/*.{jpeg,jpg,png,gif}"
 );
 if (!images[frontmatter.image.url])
   throw new Error(
-    `"${frontmatter.image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`,
+    `"${frontmatter.image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`
   );
 ---
 

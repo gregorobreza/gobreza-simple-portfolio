@@ -34,11 +34,11 @@
   code {
     @apply bg-levender-white text-dark-primary rounded-sm px-0.5;
   }
-  ul {
-    @apply list-disc px-3 sm:px-8;
+  ul{
+    @apply list-disc px-3 sm:px-8
   }
-  ol {
-    @apply list-decimal px-3 sm:px-8;
+  ol{
+    @apply list-decimal px-3 sm:px-8
   }
 }
 

@@ -6,14 +6,14 @@ import ProjectsCardList from "../../components/projects/ProjectsCardList.astro";
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const allProjects = (await getCollection("projects")).sort(
-    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
   );
   const uniqueTags = [
     ...new Set(allProjects.map((project) => project.data.tags).flat()),
   ];
   return uniqueTags.map((tag) => {
     const filteredProjects = allProjects.filter((project) =>
-      project.data.tags.includes(tag),
+      project.data.tags.includes(tag)
     );
     return {
       params: { tag },
