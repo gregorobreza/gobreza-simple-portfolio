@@ -27,6 +27,7 @@ export default defineConfig({
   redirects: {
     "/projects-tags": "/projects",
   },
-  site: "https://gregorobreza.github.io",
-  base: isDev ? "/" : '/gobreza-simple-portfolio',
+  // site: "https://gregorobreza.github.io",
+  site: "https://gregorobreza.com",
+  // base: isDev ? "/" : '/gobreza-simple-portfolio',
 });
