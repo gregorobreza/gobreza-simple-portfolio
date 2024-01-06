@@ -2,15 +2,13 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  imageUrl: Promise<{
-    default: ImageMetadata;
-  }>;
+  cover:ImageMetadata
   projectTitle: string;
-  imageAlt: string;
+  coverAlt: string;
   githubLink: string | undefined;
   projectLink: string | undefined;
 }
-const { imageUrl, imageAlt, githubLink, projectLink, projectTitle } =
+const { cover, coverAlt, githubLink, projectLink, projectTitle } =
   Astro.props;
 
 const linkStyleClass =
@@ -66,6 +64,6 @@ const linkStyleClass =
         )
       }
     </div>
-    <Image class="z-10" src={imageUrl} alt={imageAlt} />
+    <Image class="z-10" src={cover} alt={coverAlt} />
   </div>
 </div>

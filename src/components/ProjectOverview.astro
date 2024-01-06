@@ -7,19 +7,20 @@ interface Props {
   title: string;
   description: string;
   tags: Array<string>;
-  image: { alt: string; url: string };
   githubLink: string | undefined;
   projectLink: string | undefined;
+  cover: ImageMetadata;
+  coverAlt: string;
 }
-const { slug, title, description, tags, image, githubLink, projectLink } =
+const { slug, title, description, tags, githubLink, projectLink, cover, coverAlt } =
   Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/*.{jpeg,jpg,png,gif}"
-);
-if (!images[image.url])
-  throw new Error(
-    `"${image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`
-  );
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   "/src/images/*.{jpeg,jpg,png,gif}",
+// );
+// if (!images[image.url])
+//   throw new Error(
+//     `"${image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`,
+//   );
 ---
 
 <div class="grid grid-cols-3 gap-x-10 pt-6 w-full">
@@ -27,9 +28,12 @@ if (!images[image.url])
     href=`/projects/${slug}`
     class="min-w-40 self-center hidden sm:block transition hover:scale-90"
   >
-    <span class="sr-only">{image.alt}</span>
+    <span class="sr-only">{coverAlt}</span>
 
-    <Image class="rounded-lg" src={images[image.url]()} alt={image.alt} />
+    <Image class="rounded-lg" src={cover} alt={coverAlt} />
+    <!-- <span class="sr-only">{image.alt}</span>
+
+    <Image class="rounded-lg" src={images[image.url]()} alt={image.alt} /> -->
   </a>
   <div class="flex gap-x-6 w-full col-span-3 sm:col-span-2">
     <div class="flex flex-col w-full gap-y-2">

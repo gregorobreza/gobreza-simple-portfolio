@@ -12,14 +12,6 @@ interface Props {
 }
 
 const { frontmatter } = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/*.{jpeg,jpg,png,gif}"
-);
-if (!images[frontmatter.image.url])
-  throw new Error(
-    `"${frontmatter.image.url}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`
-  );
 ---
 
 <Layout title={`Gregor Obreza | ${frontmatter.title}`}>
@@ -93,8 +85,8 @@ if (!images[frontmatter.image.url])
         </div>
         <!-- {frontmatter.description && <p>{frontmatter.description}</p>} -->
         <ProjectLayoutImage
-          imageUrl={images[frontmatter.image.url]()}
-          imageAlt={frontmatter.image.alt}
+          cover={frontmatter.cover}
+          coverAlt={frontmatter.coverAlt}
           githubLink={frontmatter.githubLink}
           projectLink={frontmatter.projectLink}
           projectTitle={frontmatter.title}
