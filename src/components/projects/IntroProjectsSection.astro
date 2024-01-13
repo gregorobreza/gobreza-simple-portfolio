@@ -12,7 +12,8 @@ interface Props {
   mainTitle: string;
   description?: string;
 }
-
+const currentPath = Astro.url.pathname;
+console.log(currentPath);
 const { allPostsButton, mainTitle, description } = Astro.props;
 ---
 
@@ -24,17 +25,46 @@ const { allPostsButton, mainTitle, description } = Astro.props;
   <div class="flex flex-wrap gap-2">
     {
       allPostsButton && (
-        <PrimaryButton href="/projects">
-          <p class="text-sm">All Projects</p>
-        </PrimaryButton>
+        <SecondaryButton href="/projects">
+          <div class="flex gap-x-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-arrow-badge-left-filled"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M17 6h-6a1 1 0 0 0 -.78 .375l-4 5a1 1 0 0 0 0 1.25l4 5a1 1 0 0 0 .78 .375h6l.112 -.006a1 1 0 0 0 .669 -1.619l-3.501 -4.375l3.5 -4.375a1 1 0 0 0 -.78 -1.625z"
+                  stroke-width="0"
+                  fill="currentColor"
+                />
+              </>
+            </svg>
+            <p class="text-sm">All Projects</p>
+          </div>
+        </SecondaryButton>
       )
     }
     {
-      tags.map((tag) => (
-        <SecondaryButton href={`/projects-tags/${tag}`}>
-          <p class="text-sm">#{tag}</p>
-        </SecondaryButton>
-      ))
+      tags.map((tag) =>
+        currentPath.includes(tag) ? (
+          <PrimaryButton href={`/projects-tags/${tag}`}>
+            <p class="text-sm">#{tag}</p>
+          </PrimaryButton>
+        ) : (
+          <SecondaryButton href={`/projects-tags/${tag}`}>
+            <p class="text-sm">#{tag}</p>
+          </SecondaryButton>
+        ),
+      )
     }
   </div>
 </div>
