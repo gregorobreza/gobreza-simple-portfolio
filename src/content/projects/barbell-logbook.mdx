@@ -13,4 +13,55 @@ projectLink: "https://barbelllogbook.com/"
 
 import WorkInProgress from "../../components/WorkInProgress.astro";
 
+This landing page was made with intention of validating one of my app ideas. The
+main point of this landing page was to run some ads on facebook and google and
+see if there is any interest for such solution and what is the main audience.
+
+## The stuff I used
+
+1. **Next.js**: the React framework.
+
+2. **Mantine**: a fully featured React componet library.
+
+3. **TypeScript**: for faster development.
+
+4. **Nodemailer**: for simple email sending.
+
+5. **Google Sheeds API**: for recording submited forms.
+
+## Process of making it
+
+- Selecting images and color scheme.
+- Figma design.
+- Basic look and functionalities.
+- Added some animations using Framer motion.
+- Google Tag and cookie notice configuration.
+
+In general creating this website using Next.js and Mantine component library was
+prety straight forward since I am quite used to use them togeether.
+
+What was a bit new to me was proppery implementing cookie notice and GoogleTag
+manager into project so the user can opt-out any time. Once GoogleTag was added,
+I connected Google Analytics and Facebook Pixels. At the end of the day it was
+nothig special just a bit of testing to get it working. However I found Google
+Tag manager development tool a bit clunky and not really reliable.
+
+The final thing was implementing form so users can sign up for early access.
+Since that was only a landing page for testing an idea I didn't really want to
+add some sort of database complexity to it. Therefore for tracing users
+responses I simply used Google Sheeds API and recorded their answer. I also send
+nice email (created with React Email library) to the user on succesfull form
+submition.
+
+That was prety much it. The final touch was adding Google reCAPTCHA v3 to
+evalute if user is a robot so I didn't get some random form submitions from
+bots.
+
+## What I learned
+
+I was more or less speedrunnign this landing page since I wanted to evaluate my
+idea as fast as possible to get to development of real application. At the end I
+decided I won't develop this idea further since other things came along. I still
+learned a lot and I do like how the page turned out.
+
 <WorkInProgress text={"This project description is still work in progress"} />
