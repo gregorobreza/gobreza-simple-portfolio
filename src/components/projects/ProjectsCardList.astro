@@ -1,9 +1,11 @@
 ---
 import PrimaryButton from "../buttons/PrimaryButton.astro";
+import SecondaryButton from "../buttons/SecondaryButton.astro";
 interface Props {
   title: string;
 }
 const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <div
@@ -13,11 +15,45 @@ const { title } = Astro.props;
     <h2>{title}</h2>
     <div class="flex flex-col gap-y-6 divide-y divide-ghost-white/35 w-full">
       <slot />
-      <div class="self-center w-full flex justify-center pt-6">
-          <PrimaryButton href="/">
-            <p class="text-sm">Home</p>
-          </PrimaryButton>
-      </div>
+
+      {
+        currentPath.includes("projects-tags") ? (
+          <div class=" flex pt-6">
+            <SecondaryButton href="/projects">
+              <div class="flex gap-x-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-arrow-badge-left-filled"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M17 6h-6a1 1 0 0 0 -.78 .375l-4 5a1 1 0 0 0 0 1.25l4 5a1 1 0 0 0 .78 .375h6l.112 -.006a1 1 0 0 0 .669 -1.619l-3.501 -4.375l3.5 -4.375a1 1 0 0 0 -.78 -1.625z"
+                      stroke-width="0"
+                      fill="currentColor"
+                    />
+                  </>
+                </svg>
+                <p class="text-sm">All Projects</p>
+              </div>
+            </SecondaryButton>
+          </div>
+        ) : (
+          <div class="self-center w-full flex justify-center pt-6">
+            <PrimaryButton href="/">
+              <p class="text-sm">Home</p>
+            </PrimaryButton>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>
